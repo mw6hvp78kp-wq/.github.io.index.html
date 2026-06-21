@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>さくら眼科 - 鹿児島市の眼科医院</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #764ba2;
+        }
+        
+        .contact-header {
+            background-color: #667eea;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            background: white;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .hero h2 {
+            color: white;
+            border: none;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .status-box {
+            background-color: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .status-label {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .status-value {
+            font-size: 1.3em;
+            color: #28a745;
+            margin-top: 10px;
+        }
+        
+        .status-message {
+            margin-top: 10px;
+            font-size: 1em;
+            color: #333;
+        }
+        
+        .toggle-button {
+            background-color: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .toggle-button:hover {
+            background-color: #764ba2;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .service-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        table th {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-box strong {
+            color: #667eea;
+        }
+        
+        .news-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .news-list li {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95em;
+        }
+        
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .news-date {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .password-form {
+            background-color: #f0f4ff;
+            padding: 20px;
+            border-radius: 4px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        
+        .password-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        
+        .password-form button {
+            width: 100%;
+            background-color: #667eea;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .password-form button:hover {
+            background-color: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            
+            nav a {
+                margin: 5px;
+                font-size: 0.9em;
+            }
+            
+            .contact-header {
+                font-size: 1em;
+            }
+            
+            section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-header">
+        📞 099-295-5911
+    </div>
+    
+    <header>
+        <h1>さくら眼科</h1>
+        <p>SAKURA EYE CLINIC ／ 開設 2000年</p>
+    </header>
+    
+    <nav>
+        <a href="#news">お知らせ</a>
+        <a href="#services">診療内容</a>
+        <a href="#hours">診療時間</a>
+        <a href="#access">アクセス</a>
+    </nav>
+    
+    <div class="container">
+        <!-- ヒーロー セクション -->
+        <div class="hero">
+            <h2>目の健康を、丁寧に守ります。</h2>
+            <p>鹿児島市吉野で、地域の皆さまの眼の健康をサポートし続けて25年。<br>
+            白内障・緑内障・網膜疾患から日常の視力管理まで、幅広く対応しています。</p>
+        </div>
+        
+        <!-- 本日の診療 -->
+        <section>
+            <h2>本日の診療</h2>
+            <div class="status-box">
+                <div class="status-label">診療状況</div>
+                <div class="status-value" id="status">受付中</div>
+                <div class="status-message">
+                    <strong>メッセージ:</strong> <span id="message">通常どおり診療しています</span>
+                </div>
+                <div class="status-message">
+                    <strong>休診日:</strong> 日曜・祝祭日・お盆・年末年始
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="toggle-button" onclick="toggleStatus()">🔄 状態を切り替える（デモ用）</button>
+            </div>
+            
+            <div class="password-form" id="staffForm" style="display:none;">
+                <h3 style="text-align: center; color: #667eea;">スタッフ用 状況切替</h3>
+                <input type="password" id="staffPassword" placeholder="パスワードを入力してください">
+                <button onclick="updateStatus()">入る</button>
+                <p style="text-align: center; font-size: 0.85em; margin-top: 10px; color: #666;">最終更新は自動的に保存されます</p>
+            </div>
+        </section>
+        
+        <!-- お知らせ -->
+        <section id="news">
+            <h2>NEWS & INFORMATION</h2>
+            <h3>お知らせ</h3>
+            <ul class="news-list">
+                <li><span class="news-date">2025.06.15</span> 日帰り白内障手術のご予約受付を開始しました。詳しくは受付までお問い合わせください。</li>
+                <li><span class="news-date">2025.04.01</span> 春季の診療時間のお知らせ。通常通り診療いたします。</li>
+                <li><span class="news-date">2025.03.01</span> ホームページをリニューアルいたしました。</li>
+                <li><span class="news-date">2025.01.06</span> 年末年始休診のお知らせ（12月31日〜1月5日）。</li>
+                <li><span class="news-date">2024.08.10</span> お盆休診のお知らせ（8月12日〜16日）。</li>
+            </ul>
+        </section>
+        
+        <!-- 診療内容 -->
+        <section id="services">
+            <h2>MEDICAL SERVICES</h2>
+            <h3>診療内容</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👁️</div>
+                    <h3>一般眼科</h3>
+                    <p>視力低下・充血・眼の痛みなど、眼に関するあらゆる症状の診察・治療を行います。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h3>白内障</h3>
+                    <p>白内障の診断から手術まで対応しています。見えにくさ・かすみなどの症状は早めにご相談ください。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚠️</div>
+                    <h3>緑内障</h3>
+                    <p><strong>失明原因 第1位</strong><br>自覚症状がないまま進行します。一度失った視野は元に戻りません。40歳を過ぎたら定期検査をお勧めします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🩺</div>
+                    <h3>網膜疾患</h3>
+                    <p>糖尿病網膜症・加齢黄斑変性など、網膜に関わる疾患の診断・治療を行います。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌸</div>
+                    <h3>アレルギー・ドライアイ</h3>
+                    <p>花粉症による結膜炎やドライアイの診察・点眼薬処方を行っています。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>定期検診・健診</h3>
+                    <p>目の病気は自覚症状が出たときにはすでに進行していることが多いです。年に一度の眼科受診をぜひお続けください。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 診療時間 -->
+        <section id="hours">
+            <h2>HOURS & ACCESS</h2>
+            <h3>診療時間</h3>
+            <table>
+                <tr>
+                    <th>曜日</th>
+                    <th>午前 (9:30〜12:00)</th>
+                    <th>午後 (16:00〜18:00)</th>
+                </tr>
+                <tr>
+                    <td>月曜日</td>
+                    <td>●</td>
+                    <td>●</td>
+                </tr>
+                <tr>
+                    <td>火曜日</td>
+                    <td>●</td>
+                    <td>●</td>
+                </tr>
+                <tr>
+                    <td>水曜日</td>
+                    <td>●</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>木曜日</td>
+                    <td>●</td>
+                    <td>●</td>
+                </tr>
+                <tr>
+                    <td>金曜日</td>
+                    <td>●</td>
+                    <td>●</td>
+                </tr>
+                <tr>
+                    <td>土曜日</td>
+                    <td>●</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>日曜日</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+            </table>
+            <ul style="margin-top: 20px; margin-left: 20px;">
+                <li>日曜日・祝祭日・お盆・年末年始は休診となります</li>
+                <li>受付は終了30分前まで</li>
+                <li>臨時休診はお知らせでご確認ください</li>
+            </ul>
+        </section>
+        
+        <!-- アクセス -->
+        <section id="access">
+            <h2>ACCESS</h2>
+            <h3>アクセス情報</h3>
+            <div class="access-info">
+                <div class="info-box">
+                    <strong>住所</strong><br>
+                    〒892-0877<br>
+                    鹿児島市吉野二丁目6-10
+                </div>
+                <div class="info-box">
+                    <strong>TEL</strong><br>
+                    099-295-5911
+                </div>
+                <div class="info-box">
+                    <strong>開設</strong><br>
+                    2000年
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <a href="https://maps.google.com/?q=892-0877+鹿児島市吉野二丁目6-10" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                    → Google マップで開く
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p><strong>医療法人さくら眼科</strong></p>
+        <p>〒892-0877 鹿児島市吉野二丁目6-10 | TEL: 099-295-5911</p>
+        <p>© 2000 Sakura Eye Clinic</p>
+    </footer>
+    
+    <script>
+        let statusOpen = true;
+        
+        function toggleStatus() {
+            document.getElementById('staffForm').style.display = 
+                document.getElementById('staffForm').style.display === 'none' ? 'block' : 'none';
+        }
+        
+        function updateStatus() {
+            const password = document.getElementById('staffPassword').value;
+            if (password === 'sakura2000') {
+                statusOpen = !statusOpen;
+                localStorage.setItem('sakuraStatus', statusOpen);
+                document.getElementById('status').textContent = statusOpen ? '受付中' : '休診中';
+                document.getElementById('message').textContent = 
+                    statusOpen ? '通常どおり診療しています' : '本日の診療は終了いたしました';
+                document.getElementById('staffPassword').value = '';
+                alert('状態を更新しました');
+            } else {
+                alert('パスワードが間違っています');
+            }
+        }
+        
+        // ローカルストレージから状態を復元
+        window.addEventListener('load', function() {
+            const saved = localStorage.getItem('sakuraStatus');
+            if (saved !== null) {
+                statusOpen = saved === 'true';
+                document.getElementById('status').textContent = statusOpen ? '受付中' : '休診中';
+                document.getElementById('message').textContent = 
+                    statusOpen ? '通常どおり診療しています' : '本日の診療は終了いたしました';
+            }
+        });
+    </script>
+</body>
+</html>
